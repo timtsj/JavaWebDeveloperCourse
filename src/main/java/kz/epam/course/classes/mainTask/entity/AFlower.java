@@ -1,5 +1,7 @@
 package kz.epam.course.classes.mainTask.entity;
 
+import java.util.Objects;
+
 /**
  * Абстрактый класс для наследования объектов Цветок
  */
@@ -87,17 +89,14 @@ public abstract class AFlower implements Comparable<AFlower> {
 
     /**
      * Метод генерирует HashCode объекта
-     *
      * @return возвращает HashCode объекта
      */
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (getCost() != +0.0f ? Float.floatToIntBits(getCost()) : 0);
-        return result;
+        return Objects.hash(cost, fresh, stalkLength);
     }
 
-    /**
+/**
      * Метод позволяет сравнить на идентичность текущий объект класса цветок с переданным для сравнения
      *
      * @param obj параметр содержит объект для сравнения
@@ -106,15 +105,11 @@ public abstract class AFlower implements Comparable<AFlower> {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof AFlower)) return false;
-
-        AFlower AFlower = (AFlower) obj;
-
-        if (cost != AFlower.cost) return false;
-        if (fresh != AFlower.fresh) return false;
-        if (stalkLength != AFlower.stalkLength) return false;
-
-        return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        AFlower aFlower = (AFlower) obj;
+        return cost == aFlower.cost &&
+                stalkLength == aFlower.stalkLength &&
+                fresh == aFlower.fresh;
     }
 
     /**

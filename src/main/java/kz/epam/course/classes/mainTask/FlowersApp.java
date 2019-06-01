@@ -1,7 +1,7 @@
 package kz.epam.course.classes.mainTask;
 
 import kz.epam.course.classes.mainTask.entity.*;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 
 import java.util.Arrays;
 
@@ -13,8 +13,8 @@ import java.util.Arrays;
  * Провести сортировку цветов в букете на основе уровня свежести.
  * Найти цветок в букете, соответствующий заданному диапазону длин стеблей.
  */
+@Log4j
 public class FlowersApp {
-    static final Logger logger = Logger.getLogger(FlowersApp.class);
 
     /**
      * Метод запуска приложения
@@ -38,38 +38,40 @@ public class FlowersApp {
 
     /**
      * Метод получения букета цветов.
+     *
      * @param AFlowers массив букета цветов.
      */
     private static void getFlowers(AFlower[] AFlowers) {
-        logger.info("##Букет цветов несортированный");
+        log.info("##Букет цветов несортированный");
         for (AFlower f : AFlowers) {
-            logger.info(f.toString());
+            log.info(f.toString());
         }
     }
 
     /**
      * Метод получения отсортированного по увроню свежести букета цветов.
+     *
      * @param AFlowers массив букета цветов.
      */
     private static void sortFlowersByFreshness(AFlower[] AFlowers) {
         Arrays.sort(AFlowers);
-        logger.info("##Букет цветов отсортированный по уровню свежести");
+        log.info("##Букет цветов отсортированный по уровню свежести");
         for (AFlower f : AFlowers) {
-            logger.info(f.toString());
+            log.info(f.toString());
         }
     }
 
     /**
      * Метод получения цветка в букете, соответствующий заданному диапазону длин стеблей.
      *
-     * @param AFlowers массив букета цветов.
+     * @param AFlowers    массив букета цветов.
      * @param stalkLength заданный диапазон длин стеблей.
      */
     private static void getFlowersByStalkLength(AFlower[] AFlowers, int stalkLength) {
-        logger.info("##Цветы со стеблем больше или равным " + stalkLength);
+        log.info("##Цветы со стеблем больше или равным " + stalkLength);
         for (AFlower f : AFlowers) {
             if (f.getStalkLength() >= stalkLength) {
-                logger.info(f.toString());
+                log.info(f.toString());
             }
         }
     }
