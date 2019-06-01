@@ -1,6 +1,7 @@
 package kz.epam.course.classes.mainTask;
 
 import kz.epam.course.classes.mainTask.entity.*;
+import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 
@@ -12,7 +13,9 @@ import java.util.Arrays;
  * Провести сортировку цветов в букете на основе уровня свежести.
  * Найти цветок в букете, соответствующий заданному диапазону длин стеблей.
  */
-public class App {
+public class FlowersApp {
+    static final Logger logger = Logger.getLogger(FlowersApp.class);
+
     /**
      * Метод запуска приложения
      *
@@ -38,9 +41,9 @@ public class App {
      * @param AFlowers массив букета цветов.
      */
     private static void getFlowers(AFlower[] AFlowers) {
-        System.out.println("Букет цветов несортированный");
+        logger.info("##Букет цветов несортированный");
         for (AFlower f : AFlowers) {
-            System.out.println(f.toString());
+            logger.info(f.toString());
         }
     }
 
@@ -50,9 +53,9 @@ public class App {
      */
     private static void sortFlowersByFreshness(AFlower[] AFlowers) {
         Arrays.sort(AFlowers);
-        System.out.println("Букет цветов отсортированный по уровню свежести");
+        logger.info("##Букет цветов отсортированный по уровню свежести");
         for (AFlower f : AFlowers) {
-            System.out.println(f.toString());
+            logger.info(f.toString());
         }
     }
 
@@ -63,10 +66,10 @@ public class App {
      * @param stalkLength заданный диапазон длин стеблей.
      */
     private static void getFlowersByStalkLength(AFlower[] AFlowers, int stalkLength) {
-        System.out.println("Цветы со стеблем больше или равным " + stalkLength);
+        logger.info("##Цветы со стеблем больше или равным " + stalkLength);
         for (AFlower f : AFlowers) {
             if (f.getStalkLength() >= stalkLength) {
-                System.out.println(f.toString());
+                logger.info(f.toString());
             }
         }
     }
