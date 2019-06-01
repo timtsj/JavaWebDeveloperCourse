@@ -1,4 +1,4 @@
-package kz.epam.course.classes.optionalTask;
+package kz.epam.course.classes.optionalTask.entity;
 
 /**
  * Создать классы, спецификации которых приведены ниже.
@@ -135,17 +135,20 @@ public class Student {
     }
 
     public String toString() {
-        return "Student{" + " id " + getId() +
-                ", name = '" + getName() + '\'' +
-                ", middleName = '" + getMiddleName() + '\'' +
-                ", dateOfBirth = '" + getDateOfBirth() + '\'' +
-                ", address = '" + getAddress() + '\'' +
-                ", surname = '" + getSurname() + '\'' +
-                ", phoneNumber = '" + getPhoneNumber() + '\'' +
-                ", faculty = '" + getFaculty() + '\'' +
-                ", course = '" + getCourse() + '\'' +
-                ", group = '" + getGroup() + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder("Student{")
+                .append(" id ").append(getId())
+                .append(", name = '").append(getName()).append('\'')
+                .append(", middleName = '").append(getMiddleName()).append('\'')
+                .append(", dateOfBirth = '").append(getDateOfBirth()).append('\'')
+                .append(", address = '").append(getAddress()).append('\'')
+                .append(", surname = '").append(getSurname()).append('\'')
+                .append(", phoneNumber = '").append(getPhoneNumber()).append('\'')
+                .append(", faculty = '").append(getFaculty()).append('\'')
+                .append(", course = '").append(getCourse()).append('\'')
+                .append(", group = '").append(getGroup()).append('\'')
+                .append('}');
+
+        return sb.toString();
     }
 
     public String fullName() {

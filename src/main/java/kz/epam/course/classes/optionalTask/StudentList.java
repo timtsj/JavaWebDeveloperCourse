@@ -1,5 +1,7 @@
 package kz.epam.course.classes.optionalTask;
 
+import kz.epam.course.classes.optionalTask.entity.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,62 +18,62 @@ public class StudentList {
     }
 
     public void facultyPrint(String faculty) {
-        System.out.println("Список студентов факультета " + faculty);
+        Main.logger.info("Список студентов факультета " + faculty);
         for (Student st : studentsList) {
             if (st.getFaculty().equals(faculty)) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
 
     public void groupPrint(String group) {
-        System.out.println("Список студентов группы " + group);
+        Main.logger.info("Список студентов группы " + group);
         for (Student st : studentsList) {
             if (st.getGroup().equals(group)) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
 
     public void yearOfBirthPrint(String year) {
-        System.out.println("Список студентов, родившихся после " + year + " года");
+        Main.logger.info("Список студентов, родившихся после " + year + " года");
         for (Student st : studentsList) {
             if (parseYear(st.getDateOfBirth().substring(6)) > parseYear(year)) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
 
     public void yearOfBirthPrint() {
-        System.out.println("Список студентов, независимо от года рождения");
+        Main.logger.info("Список студентов, независимо от года рождения");
         for (Student st : studentsList) {
-            System.out.println(st.toString());
+            Main.logger.info(st.toString());
         }
     }
 
     public void facultyCoursePrint(String faculty, String course) {
-        System.out.println("Список студентов факультета " + faculty + " курса " + course);
+        Main.logger.info("Список студентов факультета " + faculty + " курса " + course);
         for (Student st : studentsList) {
             if (st.getFaculty().equals(faculty) & st.getCourse().equals(course)) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
 
     public void facultyCoursePrint(String faculty) {
-        System.out.println("Список студентов факультета " + faculty + "всех курсов ");
+        Main.logger.info("Список студентов факультета " + faculty + "всех курсов ");
         for (Student st : studentsList) {
             if (st.getFaculty().equals(faculty)) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
 
     public void facultyCoursePrint(int course) {
-        System.out.println("Список студентов всех факультетов, курса " + course);
+        Main.logger.info("Список студентов всех факультетов, курса " + course);
         for (Student st : studentsList) {
             if (Integer.parseInt(st.getCourse()) == course) {
-                System.out.println(st.toString());
+                Main.logger.info(st.toString());
             }
         }
     }
