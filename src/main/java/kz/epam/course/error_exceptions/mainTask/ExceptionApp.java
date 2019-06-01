@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainTask {
+public class ExceptionApp {
 
     /**
      * В символьном файле находится информация об N числах с плавающей запятой.

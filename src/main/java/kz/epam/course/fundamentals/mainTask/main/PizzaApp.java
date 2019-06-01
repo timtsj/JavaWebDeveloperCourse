@@ -6,7 +6,7 @@ import kz.epam.course.fundamentals.mainTask.report.OrderReport;
 
 import java.util.Scanner;
 
-public class MainTask {
+public class PizzaApp {
 
     public static void main(String[] args) throws Exception {
         client1();
