@@ -37,12 +37,12 @@ public class Bouquet {
 
     /**
      * Метод получения цветка в букете, соответствующий заданному диапазону длин стеблей.
-     * @param stalkLength заданный диапазон длин стеблей.
+     * @param minLength заданный диапазон длин стеблей.
      */
-    public void getFlowersByStalkLength(int stalkLength) {
-        log.info("##Цветы со стеблем больше или равным " + stalkLength);
+    public void getFlowersByStalkLength(int minLength, int maxLength) {
+        log.info("##Цветок со стеблем соответствующий заданному диапазону длин стеблей " + minLength + " и " + maxLength);
         for (AbstractFlower f : flowers) {
-            if (f.getStalkLength() >= stalkLength) {
+            if (f.getStalkLength() >= minLength && f.getStalkLength() <= maxLength) {
                 log.info(f.toString());
             }
         }
