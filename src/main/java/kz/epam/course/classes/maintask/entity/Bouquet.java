@@ -1,4 +1,4 @@
-package kz.epam.course.classes.mainTask.entity;
+package kz.epam.course.classes.maintask.entity;
 
 import lombok.extern.log4j.Log4j;
 

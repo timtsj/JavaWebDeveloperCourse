@@ -1,21 +1,21 @@
-package kz.epam.course.classes.mainTask.entity;
+package kz.epam.course.classes.maintask.entity;
 
-import kz.epam.course.classes.mainTask.utils.FreshnessType;
+import kz.epam.course.classes.maintask.utils.FreshnessType;
 
 /**
- * Класс обьекта цветка Лилия
+ * Класс обьекта цветка Роза
  */
-public class Lily extends AbstractFlower {
+public class Rose extends AbstractFlower {
 
     /**
-     * Конструктор для создания объекта Лилия
+     * Конструктор для создания объекта Роза
      * @param cost          параметр содержит цену цветка
      * @param fresh         параметр содержит уровень свежести цветка
      * @param stalkLength   параметр содержит количество стеблей цветка
      */
-    public Lily(int cost, FreshnessType fresh, int stalkLength) {
+    public Rose(int cost, FreshnessType fresh, int stalkLength) {
         super(0, fresh, stalkLength);
-        setCost(cost, 3, 6);
+        setCost(cost, 2, 4);
     }
 
     /**
@@ -25,6 +25,6 @@ public class Lily extends AbstractFlower {
      */
     @Override
     public String toString() {
-        return String.format("%s; %s", "Lily", super.toString());
+        return String.format("%s; %s", "Rose", super.toString());
     }
 }

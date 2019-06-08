@@ -1,6 +1,6 @@
-package kz.epam.course.classes.mainTask.entity;
+package kz.epam.course.classes.maintask.entity;
 
-import kz.epam.course.classes.mainTask.utils.FreshnessType;
+import kz.epam.course.classes.maintask.utils.FreshnessType;
 
 import java.util.Objects;
 

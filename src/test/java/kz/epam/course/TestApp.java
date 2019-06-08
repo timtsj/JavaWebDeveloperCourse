@@ -1,6 +1,6 @@
 package kz.epam.course;
 
-import kz.epam.course.classes.mainTask.FlowersApp;
+import kz.epam.course.classes.maintask.FlowersApp;
 import org.junit.Test;
 
 /**

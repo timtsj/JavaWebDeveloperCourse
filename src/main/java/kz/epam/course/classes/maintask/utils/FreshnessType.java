@@ -1,4 +1,4 @@
-package kz.epam.course.classes.mainTask.utils;
+package kz.epam.course.classes.maintask.utils;
 
 /**
  * Перечисление степень свежести
