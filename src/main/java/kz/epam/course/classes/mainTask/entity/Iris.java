@@ -1,14 +1,13 @@
 package kz.epam.course.classes.mainTask.entity;
 
+import kz.epam.course.classes.mainTask.utils.FreshnessType;
+
+import java.util.Objects;
+
 /**
  * Класс обьекта цветка Ирис
  */
-public class Iris extends AFlower {
-
-    /**
-     * Стоимость цветка Ирис
-     */
-    private int irisCost;
+public class Iris extends AbstractFlower {
 
     /**
      * Конструктор для создания объекта Ирис
@@ -16,39 +15,23 @@ public class Iris extends AFlower {
      * @param fresh         параметр содержит уровень свежести цветка
      * @param stalkLength   параметр содержит количество стеблей цветка
      */
-    public Iris(int cost, EFreshness fresh, int stalkLength) {
+    public Iris(int cost, FreshnessType fresh, int stalkLength) {
         super(0, fresh, stalkLength);
-        setCost(cost);
+        setCost(cost, 3, 6);
     }
 
-    /**
-     * Переопределенный метод возвращает значение цены цветка
-     *
-     * @return возвращает значение цены цветка
-     */
     @Override
-    public int getCost() {
-        return irisCost;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Iris iris = (Iris) o;
+        return this.cost == iris.cost;
     }
 
-    /**
-     * Переопределенный метод позволяет занести значение цены цветка по уровню свежести.
-     *
-     * @param cost содержит значение цены цветка
-     */
     @Override
-    public void setCost(int cost) {
-        switch (this.getFresh()) {
-            case FULL_FRESH:
-                irisCost = cost;
-                break;
-            case MIDDLE_FRESH:
-                irisCost = cost - 3;
-                break;
-            case OLD_FRESH:
-                irisCost = cost - 6;
-                break;
-        }
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.cost);
     }
 
     /**

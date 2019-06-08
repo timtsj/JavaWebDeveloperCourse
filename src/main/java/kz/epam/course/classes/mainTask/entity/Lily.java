@@ -1,14 +1,11 @@
 package kz.epam.course.classes.mainTask.entity;
 
+import kz.epam.course.classes.mainTask.utils.FreshnessType;
+
 /**
  * Класс обьекта цветка Лилия
  */
-public class Lily extends AFlower {
-
-    /**
-     * Стоимость цветка Лилия
-     */
-    private int lilyCost;
+public class Lily extends AbstractFlower {
 
     /**
      * Конструктор для создания объекта Лилия
@@ -16,39 +13,9 @@ public class Lily extends AFlower {
      * @param fresh         параметр содержит уровень свежести цветка
      * @param stalkLength   параметр содержит количество стеблей цветка
      */
-    public Lily(int cost, EFreshness fresh, int stalkLength) {
+    public Lily(int cost, FreshnessType fresh, int stalkLength) {
         super(0, fresh, stalkLength);
-        setCost(cost);
-    }
-
-    /**
-     * Переопределенный метод возвращает значение цены цветка
-     *
-     * @return возвращает значение цены цветка
-     */
-    @Override
-    public int getCost() {
-        return lilyCost;
-    }
-
-    /**
-     * Переопределенный метод позволяет занести значение цены цветка по уровню свежести.
-     *
-     * @param cost содержит значение цены цветка
-     */
-    @Override
-    public void setCost(int cost) {
-        switch (this.getFresh()) {
-            case FULL_FRESH:
-                lilyCost = cost;
-                break;
-            case MIDDLE_FRESH:
-                lilyCost = cost - 3;
-                break;
-            case OLD_FRESH:
-                lilyCost = cost - 6;
-                break;
-        }
+        setCost(cost, 3, 6);
     }
 
     /**

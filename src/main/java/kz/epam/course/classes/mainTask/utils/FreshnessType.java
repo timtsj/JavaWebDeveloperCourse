@@ -1,9 +1,9 @@
-package kz.epam.course.classes.mainTask.entity;
+package kz.epam.course.classes.mainTask.utils;
 
 /**
  * Перечисление степень свежести
  */
-public enum EFreshness {
+public enum FreshnessType {
 
     FULL_FRESH,
     MIDDLE_FRESH,

@@ -1,21 +1,23 @@
 package kz.epam.course.classes.mainTask.entity;
 
+import kz.epam.course.classes.mainTask.utils.FreshnessType;
+
 import java.util.Objects;
 
 /**
  * Абстрактый класс для наследования объектов Цветок
  */
-public abstract class AFlower implements Comparable<AFlower> {
+public abstract class AbstractFlower implements Comparable<AbstractFlower> {
 
     /**
      * Стоимость цветка
      */
-    private int cost;
+    int cost;
 
     /**
      * Свежесть цветка
      */
-    private EFreshness fresh;
+    private FreshnessType fresh;
 
     /**
      * Количество стеблей цветка
@@ -29,7 +31,7 @@ public abstract class AFlower implements Comparable<AFlower> {
      * @param fresh         параметр содержит уровень свежести цветка
      * @param stalkLength   параметр содержит количество стеблей цветка
      */
-    public AFlower(int cost, EFreshness fresh, int stalkLength) {
+    public AbstractFlower(int cost, FreshnessType fresh, int stalkLength) {
         this.cost = cost;
         this.fresh = fresh;
         this.stalkLength = stalkLength;
@@ -49,8 +51,18 @@ public abstract class AFlower implements Comparable<AFlower> {
      *
      * @param cost содержит значение цены цветка
      */
-    public void setCost(int cost) {
-        this.cost = cost;
+    public void setCost(int cost, int middleDiscount, int oldDiscount) {
+        switch (getFresh()) {
+            case FULL_FRESH:
+                this.cost = cost;
+                break;
+            case MIDDLE_FRESH:
+                this.cost = cost - middleDiscount;
+                break;
+            case OLD_FRESH:
+                this.cost = cost - oldDiscount;
+                break;
+        }
     }
 
     /**
@@ -58,7 +70,7 @@ public abstract class AFlower implements Comparable<AFlower> {
      *
      * @return возвращает значение свежести цветка
      */
-    public EFreshness getFresh() {
+    public FreshnessType getFresh() {
         return fresh;
     }
 
@@ -66,7 +78,7 @@ public abstract class AFlower implements Comparable<AFlower> {
      * Метод позволяет занести значение свежести цветка
      * @param fresh содержит значение свежести цветка
      */
-    public void setFresh(EFreshness fresh) {
+    public void setFresh(FreshnessType fresh) {
         this.fresh = fresh;
     }
 
@@ -106,10 +118,10 @@ public abstract class AFlower implements Comparable<AFlower> {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        AFlower aFlower = (AFlower) obj;
-        return cost == aFlower.cost &&
-                stalkLength == aFlower.stalkLength &&
-                fresh == aFlower.fresh;
+        AbstractFlower abstractFlower = (AbstractFlower) obj;
+        return cost == abstractFlower.cost &&
+                stalkLength == abstractFlower.stalkLength &&
+                fresh == abstractFlower.fresh;
     }
 
     /**
@@ -131,7 +143,7 @@ public abstract class AFlower implements Comparable<AFlower> {
      * @return возвращает результат сравнения свежести цветов
      */
     @Override
-    public int compareTo(AFlower obj) {
+    public int compareTo(AbstractFlower obj) {
         if (this.fresh.ordinal() > obj.fresh.ordinal())
             return 1;
         if (this.fresh.ordinal() < obj.fresh.ordinal())
