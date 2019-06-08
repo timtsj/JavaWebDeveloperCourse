@@ -20,7 +20,7 @@ public abstract class AbstractFlower implements Comparable<AbstractFlower> {
     private FreshnessType fresh;
 
     /**
-     * Количество стеблей цветка
+     * Длина стеблей цветка
      */
     private int stalkLength;
 
