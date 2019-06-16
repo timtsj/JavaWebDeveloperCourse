@@ -1,7 +1,10 @@
 package kz.epam.course.threads.tasks;
 
+import lombok.extern.log4j.Log4j;
+
 import java.util.Random;
 
+@Log4j
 public class Ship implements Runnable {
     private Harbor harbor;
     private int workCount;
@@ -60,7 +63,10 @@ public class Ship implements Runnable {
             }
             s += ", harbor: " + harbor.containersInHarbor();
             s += ", ship: " + loadedContainers;
-            if (work) System.out.println(s);
+            if (work) {
+                log.info(s);
+            }
+
 
             try {
                 Thread.sleep(random.nextInt(1000));
